@@ -35,12 +35,12 @@
             <a href="license.html">License</a>
         </div>
 
-        <h1>Privacy Policy &mdash; Sol<span>Shield</span></h1>
-        <p class="subtitle"><strong>Effective Date: February 2026</strong></p>
+        <h1>Privacy Policy &mdash; VeilScreen<span>Skr</span></h1>
+        <p class="subtitle"><strong>Effective Date: July 2026</strong></p>
 
         <h2>1. Overview</h2>
         <p>VeilScreenSkr ("the App") is published by MidMightBit Games, based in Melbourne, VIC, Australia. The App is a software-based screen privacy protection tool for the Solana Seeker device. It applies visual overlay filters to help protect your screen from casual shoulder-surfing in public spaces.</p>
-        <p>VeilScreenSkr is built with privacy as a core principle. We do not collect personal data, we do not use analytics or tracking services, we do not store data in the cloud, and we do not serve advertisements. All data remains on your device.</p>
+        <p>VeilScreenSkr is built with privacy as a core principle. We do not collect personal data, we use no third-party analytics SDKs or advertising trackers, and we serve no advertisements. Your settings and wallet data remain on your device. The App does send anonymous, aggregate usage counts &mdash; containing no personal data &mdash; to our own privacy-preserving analytics service, described in Section 8a.</p>
 
         <h2>2. Legal Basis for Data Processing</h2>
         <p>Under the EU General Data Protection Regulation (GDPR) and UK GDPR, the legal basis for processing your wallet public address (if you choose to connect a wallet) is <strong>legitimate interest</strong> (Article 6(1)(f)) &mdash; specifically, the legitimate interest in providing SGT verification and boost session access that you voluntarily opt into by connecting your wallet. This processing is minimal, expected by the user, and proportionate.</p>
@@ -78,7 +78,7 @@
             <li>Personal information (name, email, phone number)</li>
             <li>Location data</li>
             <li>Device identifiers</li>
-            <li>Usage analytics or telemetry</li>
+            <li>Personal or device-level usage analytics (we collect only anonymous, aggregate event counts &mdash; see Section 8a)</li>
             <li>Crash reports</li>
             <li>Advertising identifiers</li>
             <li>Browsing history</li>
@@ -115,19 +115,30 @@
         <ul>
             <li><strong>Solana RPC Endpoint:</strong> To verify SGT ownership on-chain. Your wallet public address is sent as part of the query. This is publicly available blockchain data.</li>
             <li><strong>Mobile Wallet Adapter (MWA):</strong> Local device-to-device communication between VeilScreenSkr and your wallet app. This does not leave your device.</li>
+            <li><strong>Anonymous Usage Analytics:</strong> Aggregate event counts to our own Vercel service. No personal data is transmitted (see Section 8a).</li>
         </ul>
         <p>All network communications use HTTPS/TLS encryption in transit. The App enforces HTTPS for all connections and does not permit cleartext traffic.</p>
+
+        <h2>8a. Anonymous Usage Analytics</h2>
+        <p>VeilScreenSkr sends anonymous, aggregate usage events to our own privacy-preserving analytics service &mdash; a Vercel serverless function with a Vercel Blob store that we operate. Each event records only:</p>
+        <ul>
+            <li>the event name (for example, "app opened" or "shield activated");</li>
+            <li>the date; and</li>
+            <li>an approximate country that Vercel derives at its network edge from the connection.</li>
+        </ul>
+        <p>Your IP address is never logged or stored by us. No user or device identifier, no wallet address, no filter settings, and no screen content are ever transmitted. Only aggregate counts &mdash; how many times each event happened, per country, per day &mdash; are retained. We use these counts solely to understand how many people use the App and where, so we can prioritise improvements.</p>
+        <p>Because this data is anonymous and aggregate, it is not personal data under GDPR Recital 26 and equivalent laws, and no consent is required. VeilScreenSkr uses no third-party analytics SDKs and no advertising trackers, requires no account, and does not build a profile of you.</p>
 
         <h2>9. IP Address Disclosure</h2>
         <p>The App does not collect or store your IP address. However, when the App makes network requests to Solana RPC endpoints, <strong>your IP address is transmitted to those services</strong> as part of standard internet protocol. MidMightBit Games has no access to any logs or data collected by third-party RPC providers. We encourage you to review their respective privacy policies.</p>
 
         <h2>10. Data Storage and Security</h2>
-        <p>All data is stored locally on your device. No data is transmitted to any server owned or operated by MidMightBit Games. Security measures include:</p>
+        <p>All personal data is stored locally on your device. Aside from the anonymous, aggregate analytics events described in Section 8a, no data is transmitted to any server owned or operated by MidMightBit Games. Security measures include:</p>
         <ul>
             <li>Wallet public address encrypted with Android EncryptedSharedPreferences (AES-256)</li>
             <li>Encryption keys secured by the Android Keystore</li>
             <li>HTTPS enforced for all network connections</li>
-            <li>No cloud storage, no server-side databases, no remote backups</li>
+            <li>No cloud storage of personal data; our analytics service (Section 8a) retains only anonymous, aggregate counts</li>
             <li><strong>allowBackup</strong> is set to <strong>false</strong> in the App manifest to prevent wallet data from being included in device backups</li>
         </ul>
 
@@ -159,8 +170,9 @@
         <p>Filter preferences and app settings are removed when the App is uninstalled or its data is cleared.</p>
 
         <h2>14. Cross-Border Data Transfers</h2>
-        <p>When making RPC calls, your wallet public address and IP address are transmitted to Solana RPC endpoints to retrieve on-chain data. Your wallet public address is already publicly visible on the Solana blockchain. No user-specific data is sent to MidMightBit Games servers (we have none).</p>
+        <p>When making RPC calls, your wallet public address and IP address are transmitted to Solana RPC endpoints to retrieve on-chain data. Your wallet public address is already publicly visible on the Solana blockchain. No user-specific data is sent to MidMightBit Games servers; our only server &mdash; the analytics service in Section 8a &mdash; receives anonymous, aggregate counts that contain no personal data.</p>
         <p>We rely on the public nature of blockchain data and your explicit request to use this service as the basis for these transmissions. For EU/UK users, this processing is necessary for the performance of the service at your request (GDPR Article 49(1)(b)).</p>
+        <p>The only data sent to a server operated by MidMightBit Games is the anonymous, aggregate analytics described in Section 8a, which contains no personal data. Our analytics runs on Vercel's global network; Vercel acts as a processor and derives an approximate country at its edge without our code ever receiving or storing your IP address.</p>
 
         <h2>15. Your Rights</h2>
 
@@ -199,7 +211,7 @@
         <h2>16. California Residents (CCPA/CPRA)</h2>
         <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA):</p>
         <ul>
-            <li><strong>Right to Know:</strong> You have the right to know what personal information we collect. The App optionally collects only your wallet public address, stored locally on your device.</li>
+            <li><strong>Right to Know:</strong> You have the right to know what personal information we collect. The App optionally collects only your wallet public address, stored locally on your device. The anonymous, aggregate usage counts described in Section 8a are not "personal information" under the CCPA/CPRA.</li>
             <li><strong>Right to Delete:</strong> You can delete all data by disconnecting your wallet or uninstalling the App.</li>
             <li><strong>Right to Opt-Out of Sale:</strong> We do not sell, share, or disclose personal information to third parties for monetary or other consideration. There is no "sale" of data to opt out of.</li>
             <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising your CCPA/CPRA rights.</li>
