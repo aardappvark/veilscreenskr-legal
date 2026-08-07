@@ -36,7 +36,7 @@
         </div>
 
         <h1>Privacy Policy &mdash; VeilScreen<span>Skr</span></h1>
-        <p class="subtitle"><strong>Effective Date: July 2026</strong></p>
+        <p class="subtitle"><strong>Effective Date: 7 August 2026</strong></p>
 
         <h2>1. Overview</h2>
         <p>VeilScreenSkr ("the App") is published by MidMightBit Games, based in Melbourne, VIC, Australia. The App is a software-based screen privacy protection tool for the Solana Seeker device. It applies visual overlay filters to help protect your screen from casual shoulder-surfing in public spaces.</p>
@@ -113,9 +113,9 @@
         <h2>8. Network Requests</h2>
         <p>The App makes the following network requests:</p>
         <ul>
-            <li><strong>Solana RPC Endpoint:</strong> To verify SGT ownership on-chain. Your wallet public address is sent as part of the query. This is publicly available blockchain data.</li>
+            <li><strong>Solana RPC Endpoint:</strong> To verify Seeker Genesis Token status, submit payments, and restore purchases (by scanning your wallet's transaction history), the App sends your wallet's public address to the Solana RPC provider <strong>api.mainnet-beta.solana.com</strong>. This provider receives your IP address and the public address. Private keys never leave your wallet.</li>
             <li><strong>Mobile Wallet Adapter (MWA):</strong> Local device-to-device communication between VeilScreenSkr and your wallet app. This does not leave your device.</li>
-            <li><strong>Anonymous Usage Analytics:</strong> Aggregate event counts to our own Vercel service. No personal data is transmitted (see Section 8a).</li>
+            <li><strong>Anonymous Usage Analytics:</strong> Aggregate event counts to our own Vercel service at veilscreenskr-analytics.vercel.app. No personal data is transmitted (see Section 8a).</li>
         </ul>
         <p>All network communications use HTTPS/TLS encryption in transit. The App enforces HTTPS for all connections and does not permit cleartext traffic.</p>
 
@@ -139,7 +139,7 @@
             <li>Encryption keys secured by the Android Keystore</li>
             <li>HTTPS enforced for all network connections</li>
             <li>No cloud storage of personal data; our analytics service (Section 8a) retains only anonymous, aggregate counts</li>
-            <li><strong>allowBackup</strong> is set to <strong>false</strong> in the App manifest to prevent wallet data from being included in device backups</li>
+            <li>If Android Backup is enabled on your device, the App's settings and progress data are included in your device's encrypted Google backup, survive uninstalling the App, and may be restored when you reinstall. Wallet data is always excluded from backup. You can exclude the App from backup in Android Settings or delete the backup from your Google account. The blockchain remains the authoritative record via "Restore purchases".</li>
         </ul>
 
         <h2>11. No Accounts Created</h2>
@@ -167,7 +167,7 @@
             <li>Clear the App's data through Android Settings &gt; Apps &gt; VeilScreenSkr &gt; Clear Data</li>
             <li>Uninstall the App</li>
         </ul>
-        <p>Filter preferences and app settings are removed when the App is uninstalled or its data is cleared.</p>
+        <p>Filter preferences and app settings are removed from the device when the App is uninstalled or its data is cleared. Note that if Android Backup is enabled, a copy of the App's settings and progress data may persist in your device's encrypted Google backup after uninstalling &mdash; see Section 10 for how to exclude or delete it.</p>
 
         <h2>14. Cross-Border Data Transfers</h2>
         <p>When making RPC calls, your wallet public address and IP address are transmitted to Solana RPC endpoints to retrieve on-chain data. Your wallet public address is already publicly visible on the Solana blockchain. No user-specific data is sent to MidMightBit Games servers; our only server &mdash; the analytics service in Section 8a &mdash; receives anonymous, aggregate counts that contain no personal data.</p>
