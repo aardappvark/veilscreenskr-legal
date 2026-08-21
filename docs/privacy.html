@@ -120,7 +120,7 @@
         <p>All network communications use HTTPS/TLS encryption in transit. The App enforces HTTPS for all connections and does not permit cleartext traffic.</p>
 
         <h2>8a. Anonymous Usage Analytics</h2>
-        <p>VeilScreenSkr sends anonymous, aggregate usage events to our own privacy-preserving analytics service &mdash; a Vercel serverless function with a Vercel Blob store that we operate. Each event records only:</p>
+        <p>VeilScreenSkr sends anonymous, aggregate usage events to our own privacy-preserving analytics service &mdash; a Vercel serverless function with a our Cloudflare D1 database (with Vercel Blob as a short-term fallback) store that we operate. Each event records only:</p>
         <ul>
             <li>the event name (for example, "app opened" or "shield activated");</li>
             <li>the date; and</li>
